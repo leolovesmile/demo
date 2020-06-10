@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TbDevice Simulator</string>
+    <string name="app_name">设备模拟器</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
