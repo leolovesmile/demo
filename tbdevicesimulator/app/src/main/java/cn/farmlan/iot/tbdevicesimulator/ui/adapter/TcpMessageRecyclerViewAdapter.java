@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import cn.farmlan.iot.tbdevicesimulator.R;
 import cn.farmlan.iot.tbdevicesimulator.model.TcpMessage;
 
-public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessageRecyclerViewAdapter.MyViewHolder>{
-
-
+public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessageRecyclerViewAdapter.MyViewHolder> {
     private ArrayList<TcpMessage> mMessages;
     private MyRecyclerViewItemClickListener mItemClickListener;
 
@@ -39,11 +37,9 @@ public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessa
         final MyViewHolder myViewHolder = new MyViewHolder(view);
 
         //Item Clicks
-        myViewHolder.itemView.setOnClickListener(new View.OnClickListener()
-        {
+        myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 mItemClickListener.onItemClicked(mMessages.get(myViewHolder.getLayoutPosition()));
             }
         });
