@@ -1,0 +1,2 @@
+# intro
+本demo程序为一个android application。主要用来模拟thingsboard的客户端设备，与服务端进行交互。
