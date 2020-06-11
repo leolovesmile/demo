@@ -4,14 +4,12 @@
     <PreferenceCategory app:title="@string/server_header">
 
         <EditTextPreference
-            app:key="server_host_name"
+            app:key="@string/sp_key_server_host_name"
             app:title="@string/server_host_name"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            android:inputType="number"
-            android:digits="0123456789"
-            app:key="server-port"
+            app:key="@string/sp_key_server_port"
             app:title="@string/server_port"
             app:useSimpleSummaryProvider="true"/>
 
@@ -25,24 +23,25 @@
 <!--            app:useSimpleSummaryProvider="true" />-->
 
         <EditTextPreference
-            app:key="token"
+            app:key="@string/device_token"
             app:title="@string/device_token"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="@string/data_header">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+        <EditTextPreference
+            app:key="@string/sp_key_auth_data"
+            app:title="@string/auth_data_title"
+            app:defaultValue="@string/auth_data_template"
+            app:useSimpleSummaryProvider="true"/>
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <EditTextPreference
+            app:key="@string/sp_key_tele_data"
+            app:title="@string/tele_data_title"
+            app:defaultValue="@string/tele_data_template"
+            app:useSimpleSummaryProvider="true"/>
 
     </PreferenceCategory>
 

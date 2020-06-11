@@ -22,7 +22,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class HomeViewModel extends ViewModel {
 
-    private final NettyTcpClientConnector client;
+    private NettyTcpClientConnector client;
     private MutableLiveData<String> mViewText;
     private MutableLiveData<String> mMsgText;
     private MutableLiveData<ArrayList<TcpMessage>> msgList;
@@ -31,11 +31,11 @@ public class HomeViewModel extends ViewModel {
         mMsgText = new MutableLiveData<>();
         mViewText = new MutableLiveData<>();
         msgList = new MutableLiveData<>();
-        mViewText.setValue("Hostname: Port: Device");
-        client = new NettyTcpClientConnector("121.36.1.147", 6060);
     }
 
-    public void bind(LifecycleOwner lifecycleOwner) {
+    public void bind(LifecycleOwner lifecycleOwner, String hostname, int port, String token, String authTemplate, String dataTemplate) {
+        mViewText.setValue(String.format("服务器信息： %1s:%2s\n本机token： %3s", hostname, port, token));
+        client = new NettyTcpClientConnector(hostname, port);
         Publisher<String> pub = LiveDataReactiveStreams.toPublisher(lifecycleOwner, mMsgText);
 //        @NonNull Flowable<TcpMessage> clientFlow = Flowable.fromPublisher(pub).map(msg -> new TcpMessage(msg, new Date(), "客户端"));
 //        @NonNull Flowable<TcpMessage> serverFlow = Flowable.fromPublisher(pub).map(msg -> new TcpMessage(msg, new Date(), "服务端"));
@@ -53,7 +53,7 @@ public class HomeViewModel extends ViewModel {
         });
     }
 
-    public LiveData<String> getText() {
+    public LiveData<String> getServerInfoText() {
         return mViewText;
     }
 
