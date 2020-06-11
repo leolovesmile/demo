@@ -29,20 +29,20 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/data_header">
+<!--    <PreferenceCategory app:title="@string/data_header" >-->
 
-        <EditTextPreference
-            app:key="@string/sp_key_auth_data"
-            app:title="@string/auth_data_title"
-            app:defaultValue="@string/auth_data_template"
-            app:useSimpleSummaryProvider="true"/>
+<!--        <EditTextPreference-->
+<!--            app:key="@string/sp_key_auth_data"-->
+<!--            app:title="@string/auth_data_title"-->
+<!--            app:defaultValue="@string/auth_data_template"-->
+<!--            app:useSimpleSummaryProvider="true"/>-->
 
-        <EditTextPreference
-            app:key="@string/sp_key_tele_data"
-            app:title="@string/tele_data_title"
-            app:defaultValue="@string/tele_data_template"
-            app:useSimpleSummaryProvider="true"/>
+<!--        <EditTextPreference-->
+<!--            app:key="@string/sp_key_tele_data"-->
+<!--            app:title="@string/tele_data_title"-->
+<!--            app:defaultValue="@string/tele_data_template"-->
+<!--            app:useSimpleSummaryProvider="true"/>-->
 
-    </PreferenceCategory>
+<!--    </PreferenceCategory>-->
 
 </PreferenceScreen>

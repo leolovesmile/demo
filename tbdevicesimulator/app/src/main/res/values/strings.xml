@@ -17,11 +17,11 @@
     <string name="auth_data_template"><![CDATA[{"method": "update","gatewayNo": "02","userkey": "%1s"}&^!]]></string>
     <string name="tele_data_title">设备数据模板</string>
     <string name="tele_data_template"><![CDATA[{"method": "upload","data":[{"Name":"T1","Value":"33"},{"Name":"T2","Value":"96.2"}]}&^!]]></string>
-    <string name="sp_key_server_host_name">sp_key_server_host_name</string>
-    <string name="sp_key_server_port">sp_key_server_port</string>
-    <string name="sp_key_device_token">sp_key_device_token</string>
-    <string name="sp_key_auth_data">sp_key_auth_data</string>
-    <string name="sp_key_tele_data">sp_key_tele_data</string>
+    <string name="sp_key_server_host_name">sp_key_server_host_name_</string>
+    <string name="sp_key_server_port">sp_key_server_port_</string>
+    <string name="sp_key_device_token">sp_key_device_token_</string>
+    <string name="sp_key_auth_data">sp_key_auth_data_</string>
+    <string name="sp_key_tele_data">sp_key_tele_data_</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

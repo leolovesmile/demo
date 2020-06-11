@@ -32,8 +32,8 @@ public class HomeFragment extends Fragment {
     private String hostname;
     private int port;
     private String token;
-    private String authTemplate;
-    private String dataTemplate;
+    private final String authTemplate = "{\"method\": \"update\",\"gatewayNo\": \"02\",\"userkey\": \"%1s\"}&^!";
+    private final String dataTemplate = "{\"method\": \"upload\",\"data\":[{\"Name\":\"T1\",\"Value\":\"33\"},{\"Name\":\"T2\",\"Value\":\"96.2\"}]}&^!";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,11 +76,11 @@ public class HomeFragment extends Fragment {
     private void retrieveServerInfo() {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(this.getContext());
-        hostname = sharedPreferences.getString(getString(R.string.sp_key_server_host_name), "");
+        hostname = sharedPreferences.getString(getString(R.string.sp_key_server_host_name), "121.36.1.147");
         port = Integer.valueOf(sharedPreferences.getString(getString(R.string.sp_key_server_port), "6060"));
-        token = sharedPreferences.getString(getString(R.string.sp_key_device_token), "");
-        authTemplate = sharedPreferences.getString(getString(R.string.sp_key_auth_data), "");
-        dataTemplate = sharedPreferences.getString(getString(R.string.sp_key_tele_data), "");
+        token = sharedPreferences.getString(getString(R.string.sp_key_device_token), "A3_TEST_TOKEN");
+//        authTemplate = sharedPreferences.getString(getString(R.string.sp_key_auth_data), "");
+//        dataTemplate = sharedPreferences.getString(getString(R.string.sp_key_tele_data), "");
     }
 
     private void sendMsg() {
