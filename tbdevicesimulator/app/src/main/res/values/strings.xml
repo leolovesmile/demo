@@ -14,7 +14,7 @@
     <string name="server_port">端口</string>
     <string name="device_token">设备token/key</string>
     <string name="auth_data_title">登录数据模板</string>
-    <string name="auth_data_template"><![CDATA[{"method": "update","gatewayNo": "02","userkey": "6f289b7f11084520bd2aad8e425ee9b4"}&^!]]></string>
+    <string name="auth_data_template"><![CDATA[{"method": "update","gatewayNo": "02","userkey": "%1s"}&^!]]></string>
     <string name="tele_data_title">设备数据模板</string>
     <string name="tele_data_template"><![CDATA[{"method": "upload","data":[{"Name":"T1","Value":"33"},{"Name":"T2","Value":"96.2"}]}&^!]]></string>
     <string name="sp_key_server_host_name">sp_key_server_host_name</string>

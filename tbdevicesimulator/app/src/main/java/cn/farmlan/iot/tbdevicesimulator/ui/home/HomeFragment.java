@@ -32,7 +32,6 @@ public class HomeFragment extends Fragment {
     private String hostname;
     private int port;
     private String token;
-    private boolean serverInfoValid = false;
     private String authTemplate;
     private String dataTemplate;
 
@@ -82,12 +81,10 @@ public class HomeFragment extends Fragment {
         token = sharedPreferences.getString(getString(R.string.sp_key_device_token), "");
         authTemplate = sharedPreferences.getString(getString(R.string.sp_key_auth_data), "");
         dataTemplate = sharedPreferences.getString(getString(R.string.sp_key_tele_data), "");
-
-        serverInfoValid = StringUtil.isNullOrEmpty(hostname) || StringUtil.isNullOrEmpty(token) || port > 65535 || port < 1;
     }
 
     private void sendMsg() {
-        if (!serverInfoValid) {
+        if (StringUtil.isNullOrEmpty(hostname) || StringUtil.isNullOrEmpty(token) || port > 65535 || port < 1) {
             Toast.makeText(this.getContext(), R.string.msg_server_info_invalid, Toast.LENGTH_LONG).show();
             return;
         }

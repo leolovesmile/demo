@@ -23,7 +23,7 @@
 <!--            app:useSimpleSummaryProvider="true" />-->
 
         <EditTextPreference
-            app:key="@string/device_token"
+            app:key="@string/sp_key_device_token"
             app:title="@string/device_token"
             app:useSimpleSummaryProvider="true" />
 

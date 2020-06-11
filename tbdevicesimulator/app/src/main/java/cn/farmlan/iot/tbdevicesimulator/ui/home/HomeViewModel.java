@@ -35,12 +35,16 @@ public class HomeViewModel extends ViewModel {
 
     public void bind(LifecycleOwner lifecycleOwner, String hostname, int port, String token, String authTemplate, String dataTemplate) {
         mViewText.setValue(String.format("服务器信息： %1s:%2s\n本机token： %3s", hostname, port, token));
+        final String authMsg = String.format(authTemplate, token);
         client = new NettyTcpClientConnector(hostname, port);
+
         Publisher<String> pub = LiveDataReactiveStreams.toPublisher(lifecycleOwner, mMsgText);
+        @NonNull Observable<String> msgsWithAuthdataAdded = Observable.fromPublisher(pub).flatMap(msg -> Observable.fromArray(authMsg, msg));
+
 //        @NonNull Flowable<TcpMessage> clientFlow = Flowable.fromPublisher(pub).map(msg -> new TcpMessage(msg, new Date(), "客户端"));
 //        @NonNull Flowable<TcpMessage> serverFlow = Flowable.fromPublisher(pub).map(msg -> new TcpMessage(msg, new Date(), "服务端"));
-        @NonNull Observable<TcpMessage> clientFlow = client.connectAndSend(Observable.fromPublisher(pub)).map(msg -> new TcpMessage(msg, new Date(), "客户端"));
-        @NonNull Observable<TcpMessage> serverFlow = client.getServerMsg().map(msg -> new TcpMessage(msg, new Date(), "服务端"));
+        @NonNull Observable<TcpMessage> clientFlow = client.connectAndSend(msgsWithAuthdataAdded).map(msg -> new TcpMessage(msg, new Date(), false));
+        @NonNull Observable<TcpMessage> serverFlow = client.getServerMsg().map(msg -> new TcpMessage(msg, new Date(), true));
 
         clientFlow.mergeWith(serverFlow)
                 .subscribeOn(Schedulers.io())

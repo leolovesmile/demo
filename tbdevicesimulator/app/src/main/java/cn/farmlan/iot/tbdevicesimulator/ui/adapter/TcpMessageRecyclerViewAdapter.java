@@ -49,16 +49,11 @@ public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessa
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        //Set TcpMessage Name
         holder.textViewMsgContent.setText(mMessages.get(position).getContent());
-
-        //Set Capital
-        String capital = "Time: " + mMessages.get(position).getTimestamp();
-        holder.textViewMsgTimestamp.setText(capital);
-
-        //Set Currency
-        String currency = "Sender: " + mMessages.get(position).getSender();
-        holder.textViewMsgSender.setText(currency);
+        String timestamp = "时间: " + mMessages.get(position).getTimestamp();
+        holder.textViewMsgTimestamp.setText(timestamp);
+        holder.imgDevice.setVisibility(mMessages.get(position).isFromServer() ? View.GONE : View.VISIBLE);
+        holder.imgServer.setVisibility(mMessages.get(position).isFromServer() ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -78,6 +73,8 @@ public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessa
 
     //RecyclerView View Holder
     class MyViewHolder extends RecyclerView.ViewHolder {
+        private final View imgDevice;
+        private final View imgServer;
         private TextView textViewMsgContent;
         private TextView textViewMsgTimestamp;
         private TextView textViewMsgSender;
@@ -89,6 +86,8 @@ public class TcpMessageRecyclerViewAdapter extends RecyclerView.Adapter<TcpMessa
             textViewMsgTimestamp = itemView.findViewById(R.id.msg_timestamp);
             textViewMsgSender = itemView.findViewById(R.id.msg_sender);
             textViewMsgReceiver = itemView.findViewById(R.id.msg_receiver);
+            imgServer = itemView.findViewById(R.id.sender_server);
+            imgDevice = itemView.findViewById(R.id.sender_device);
         }
     }
 

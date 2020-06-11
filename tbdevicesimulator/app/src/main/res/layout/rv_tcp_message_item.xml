@@ -1,35 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="5dp">
 
+
+    <ImageView
+        android:id="@+id/sender_server"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        android:src="@drawable/iot_gate_24dp"
+        tools:srcCompat="@drawable/iot_gate_24dp" />
+
+    <ImageView
+        android:id="@+id/sender_device"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        android:src="@drawable/device_24dp"
+        tools:srcCompat="@drawable/device_24dp" />
+
+
     <TextView
         android:id="@+id/msg_content"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/sender_server"
+        app:layout_constraintRight_toLeftOf="@id/sender_device"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="14sp"/>
+        android:layout_margin="8dp"
+        android:textSize="12sp"/>
 
     <TextView
         android:id="@+id/msg_timestamp"
-        android:layout_width="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/sender_server"
+        app:layout_constraintRight_toLeftOf="@id/sender_device"
+        android:layout_width="0dp"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/msg_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/msg_sender"
-        android:layout_width="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/sender_server"
+        app:layout_constraintRight_toLeftOf="@id/sender_device"
+        app:layout_constraintTop_toBottomOf="@id/msg_timestamp"
+        android:layout_width="0dp"
+        android:visibility="gone"
         android:layout_height="wrap_content" />
 
     <TextView
         android:visibility="gone"
         android:id="@+id/msg_receiver"
-        android:layout_width="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/sender_server"
+        app:layout_constraintRight_toLeftOf="@id/sender_device"
+        app:layout_constraintTop_toBottomOf="@id/msg_sender"
+        android:layout_width="0dp"
         android:layout_height="wrap_content" />
 
     <View
         android:id="@+id/divider"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/msg_timestamp"
         android:background="?android:attr/listDivider" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

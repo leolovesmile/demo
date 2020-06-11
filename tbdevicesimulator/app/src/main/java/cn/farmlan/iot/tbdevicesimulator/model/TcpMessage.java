@@ -8,13 +8,13 @@ public class TcpMessage implements Serializable {
 
     private Date timestamp;
 
-    private String sender;
+    private boolean fromServer;
 
 
-    public TcpMessage(String content, Date timestamp, String sender) {
+    public TcpMessage(String content, Date timestamp, boolean fromServer) {
         this.content = content;
         this.timestamp = timestamp;
-        this.sender = sender;
+        this.fromServer = fromServer;
     }
 
     public String getContent() {
@@ -33,11 +33,11 @@ public class TcpMessage implements Serializable {
         this.timestamp = timestamp;
     }
 
-    public String getSender() {
-        return sender;
+    public boolean isFromServer() {
+        return fromServer;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setFromServer(boolean fromServer) {
+        this.fromServer = fromServer;
     }
 }
